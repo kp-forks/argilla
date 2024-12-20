@@ -36,13 +36,14 @@ NGINX and Traefik have been tested and are known to work with Argilla:
 Since the Argilla Server is built on FastAPI, you can launch it using `uvicorn`:
 
 ```bash
-uvicorn argilla:app
+uvicorn argilla_server:app --port 6900
 ```
 
 :::{note}
 For more details about FastAPI and uvicorn, see [here](https://fastapi.tiangolo.com/deployment/manually/#run-a-server-manually-uvicorn).
-:::
 
+You can also visit the uvicorn official documentation [here](https://www.uvicorn.org/#usage).
+:::
 
 ## Environment variables
 
@@ -58,7 +59,7 @@ You can set the following environment variables to further configure your server
 
 - `ARGILLA_CORS_ORIGINS`: List of host patterns for CORS origin access.
 
-- `ARGILLA_DOCS_ENABLED`: If False, disables openapi docs endpoint at */api/docs*.
+- `ARGILLA_DOCS_ENABLED`: If False, disables openapi docs endpoint at _/api/docs_.
 
 - `ARGILLA_ENABLE_TELEMETRY`: If False, disables telemetry for usage metrics.
 
@@ -66,11 +67,25 @@ You can set the following environment variables to further configure your server
 
 - `ARGILLA_DATABASE_URL`: A URL string that contains the necessary information to connect to a database. Argilla uses SQLite by default, PostgreSQL is also officially supported (Default: `sqlite:///$ARGILLA_HOME_PATH/argilla.db?check_same_thread=False`).
 
+#### SQLite
+
+The following environment variables are useful only when SQLite is used:
+
+- `ARGILLA_DATABASE_SQLITE_TIMEOUT`: How many seconds the connection should wait before raising an `OperationalError` when a table is locked. If another connection opens a transaction to modify a table, that table will be locked until the transaction is committed. (Defaut: `15` seconds).
+
+#### PostgreSQL
+
+The following environment variables are useful only when PostgreSQL is used:
+
+- `ARGILLA_DATABASE_POSTGRESQL_POOL_SIZE`: The number of connections to keep open inside the database connection pool (Default: `15`).
+
+- `ARGILLA_DATABASE_POSTGRESQL_MAX_OVERFLOW`: The number of connections that can be opened above and beyond `ARGILLA_DATABASE_POSTGRESQL_POOL_SIZE` setting (Default: `10`).
+
 #### Elasticsearch and Opensearch
 
 - `ARGILLA_ELASTICSEARCH`: URL of the connection endpoint of the Elasticsearch instance (Default: `http://localhost:9200`).
 
-- `ARGILA_SEARCH_ENGINE`: (Only for Feedback datasets) Search engine to use. Valid values are "elasticsearch" and "opensearch" (Default: "elasticsearch").
+- `ARGILLA_SEARCH_ENGINE`: (Only for Feedback datasets) Search engine to use. Valid values are "elasticsearch" and "opensearch" (Default: "elasticsearch").
 
 - `ARGILLA_ELASTICSEARCH_SSL_VERIFY`: If "False", disables SSL certificate verification when connecting to the Elasticsearch backend.
 
@@ -85,6 +100,16 @@ You can set the following environment variables to further configure your server
 - `ARGILLA_METADATA_FIELDS_LIMIT`: Max number of fields in the metadata (Default: 50, max: 100).
 
 - `ARGILLA_METADATA_FIELD_LENGTH`: Max length supported for the string metadata fields. Higher values will be truncated. Abusing this may lead to Elastic performance issues (Default: 128).
+
+### Feedback Datasets
+
+- `ARGILLA_LABEL_SELECTION_OPTIONS_MAX_ITEMS`: Set the number of maximum items to be allowed by label and multi label questions (Default: `500`).
+
+- `ARGILLA_SPAN_OPTIONS_MAX_ITEMS`: Set the number of maximum items to be allowed by span questions (Default: `500`).
+
+### Hugging Face
+
+- `ARGILLA_SHOW_HUGGINGFACE_SPACE_PERSISTENT_STORAGE_WARNING`: When Argilla is running on Hugging Face Spaces you can use this environment variable to disable the warning message showed when persistent storage is disabled for the space (Default: `true`).
 
 ### Client
 

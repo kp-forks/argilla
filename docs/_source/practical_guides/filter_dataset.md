@@ -15,7 +15,7 @@ The `filter_by` method returns a new instance which is a `FeedbackDataset` with 
 
 #### By `fields` content
 
-In the UI, you can filter records based on their content using the searchbar in the top left corner on top of the record card. For example, you may read or annotate all records mentioning John Wick by simply typing "John Wick" in the searchbar.
+In the UI, you can filter records based on the content in their fields using the searchbar in the top left corner on top of the record card. For example, you may read or annotate all records mentioning John Wick by simply typing "John Wick" in the searchbar. If your records have multiple fields, you will be able to select a specific field for the search or select "All" if you'd like to search on all fields. Matches are shown in <span style="color:#ff675f">coral</span>.
 
 #### By metadata property
 
@@ -78,8 +78,8 @@ In the UI, you can find a status selector that will let you choose a queue of re
 
 In the Python SDK, the `filter_by` method allows you to filter the records in a dataset based on the `response_status` of the responses given by **all users**. The `response_status` of an annotation can be one of the following:
 
-- `missing`: The records with this status have no responses. In the UI, they will appear under the `Pending` queue.
-- `draft`: The records with this status have responses but have not been submitted or discarded. In the UI, they will appear under the `Pending` queue.
+- `pending`: The records with this status have no responses. In the UI, they will appear under the `Pending` queue.
+- `draft`: The records with this status have responses that have been saved as a draft, not yet submitted or discarded. In the UI, they will appear under the `Draft` queue.
 - `discarded`: The records with this status may or may not have responses but have been discarded by the annotator. In the UI, they will appear under the `Discarded` queue.
 - `submitted`: The records with this status have responses already submitted by the annotator. In the UI, they will appear under the `Submitted` queue.
 
@@ -275,7 +275,7 @@ For a complete list of available fields and their content, have a look at the fi
 
 ```{note}
 The default behavior when not specifying any fields in the query string changed in version `>=0.16.0`.
-Before this version, Argilla searched in a mixture of the the deprecated `word` and `word.extended` fields that allowed searches for special characters like `!` and `.`.
+Before this version, Argilla searched in a mixture of the deprecated `word` and `word.extended` fields that allowed searches for special characters like `!` and `.`.
 If you want to search for special characters now, you have to specify the `text.exact` field.
 For example, this is the query if you want to search for words with an exclamation mark at the end: `text.exact:*\!`
 

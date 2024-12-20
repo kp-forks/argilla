@@ -157,7 +157,7 @@ gcloud auth login
 
 ### 2. Build and deploy the container
 
-We will use the `gcloud run deploy` command to deploy the Argilla container directly from the Docker Hub. We can point the cloud run url to the container's default port (6900) and define relevant compute resouces.
+We will use the `gcloud run deploy` command to deploy the Argilla container directly from the Docker Hub. We can point the cloud run url to the container's default port (6900) and define relevant compute resources.
 
 ```bash
 gcloud run deploy <deployment-name> \
@@ -280,4 +280,3 @@ curl -vI $STATIC_IP:6900
 
 Now you can access the Argilla instance in your browser using the URL `http://[STATIC_IP]:6900`.
 
-> 🚒 **If you'd like support with this and/or want to contribute this guide, join the [Slack Community](https://join.slack.com/t/rubrixworkspace/shared_invite/zt-whigkyjn-a3IUJLD7gDbTZ0rKlvcJ5g)**

@@ -235,3 +235,9 @@ argilla server search-engine reindex --feedback-dataset-id 08476931-ac30-4eec-9a
 :::
 
 ::::
+
+You can set the `REINDEX_DATASETS` environment variable to `true` to reindex the datasets.
+
+:::
+
+::::

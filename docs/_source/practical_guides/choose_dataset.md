@@ -33,7 +33,7 @@ We are working on it! We will be adding new features to the `FeedbackDataset` ov
 | Task / Dataset                    | FeedbackDataset 	| Older datasets 	|
 |-------------------------------	|-----------------	|-------------------|
 | Text classification           	| ✔️               	| ✔️                  |
-| Token classification          	|                 	| ✔️                  |
+| Token classification          	| ✔️               	| ✔️                  |
 | Summarization                  	| ✔️               	| ✔️                   |
 | Translation                  	    | ✔️               	| ✔️                   |
 | NLI                  	            | ✔️               	| ✔️                   |
@@ -45,6 +45,7 @@ We are working on it! We will be adding new features to the `FeedbackDataset` ov
 | RLHF (DPO)               	| ✔️               	|                              	|
 | RAG               	| ✔️               	|                              	|
 | Image support               	| ✔️               	|                              	|
+| Overlapping spans           	|✔️                	|                  |
 | And many more               	| ✔️               	|                              	|
 
 ### Annotation workflows

@@ -129,6 +129,20 @@ Learn how to apply multimodality (video, audio and images) to your FeedbackDatas
 
 Learn how to monitor bias and ethics in LLMs detecting them with Giskard and fine-tuning with DPO.
 ```
+```{grid-item-card} 🎮 Monitoring a Real-world Example of Data and Model Drift
+:link: feedback/monitoring-data-model-drift.html
+
+Learn how to monitor data and model drift in a real-world scenario using different tools.
+```
+```{grid-item-card} 💭 Enhanced Sentiment Analysis: A Span-Based Polarity Approach with Setfit
+:link: feedback/training-setfit-absa.html
+
+Learn how to train an ABSA model and evaluate with Argilla.
+```
+```{grid-item-card} 🙌 Analyzing Annotation Metrics with FastFit Model Predictions
+:link: feedback/training-fastfit-agreement.html
+Learn how to train a FastFit model and calculate well-know annotation metrics.
+```
 ````
 
 **Other datasets**
@@ -193,6 +207,12 @@ feedback/labelling-feedback-setfit
 feedback/trainer-feedback-setfit
 feedback/labelling-feedback-langchain-syntethic
 feedback/fine-tuning-sentencesimilarity-rag
+feedback/training-qa-transformers
+feedback/labelling-spacy-llm
+feedback/making-most-of-markdown
+feedback/monitoring-bias-ethics-dpo
+feedback/training-setfit-absa
+feedback/training-fastfit-agreement
 
 other_datasets/few_shot_learning_with_setfit
 other_datasets/few_shot_text_classification_with_active_learning
